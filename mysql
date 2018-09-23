@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS demo_db;
+USE demo_db;
+
+CREATE TABLE IF NOT EXISTS `demo_db`.`fake_table` (
+    `id` int unsigned AUTO_INCREMENT PRIMARY KEY,
+    `nick_name` varchar(20),
+    `score` float,
+    `what_time` DATETIME(6)
+    /*fsp(fractional seconds precision) = 6 ~ microseconds*/
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO fake_table(nick_name, score, what_time)
+VALUES(DATE_FORMAT(NOW(), '%k %i %S'), 1.8, CURRENT_TIMESTAMP());
+
+ALTER TABLE `fake_table` MODIFY COLUMN `what_time` DATETIME(6)
+DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6); 
