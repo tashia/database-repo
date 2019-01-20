@@ -1,3 +1,6 @@
+# Login: mysql -u <user> -p
+
+
 CREATE DATABASE IF NOT EXISTS demo_db;
 USE demo_db;
 
